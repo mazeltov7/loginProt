@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-// const login = require('./routes/login');
+const login = require('./routes/login');
 
 const app = express();
 
@@ -39,8 +39,7 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/login', login);
-
+app.use('/login', login);
 app.use('/', index);
 app.use('/users', users);
 

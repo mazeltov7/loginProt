@@ -9,11 +9,10 @@ router.get('/', function(req, res, next) {
 });
 
 function sessionCheck(req, res, next) {
-	console.log(req);
 	if (req.session.user) {
-		res.render('index', { title: 'yooooo'});
+		res.render('index', { title: req.session.user.name});
 	} else {
-		res.redirect('/users');
+		res.redirect('/login');
 	}
 };
 
