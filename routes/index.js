@@ -3,10 +3,7 @@ var router = express.Router();
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-	console.log(req.session);
-  sessionCheck(req, res, next);
-});
+router.get('/', sessionCheck);
 
 function sessionCheck(req, res, next) {
 	if (req.session.user) {
